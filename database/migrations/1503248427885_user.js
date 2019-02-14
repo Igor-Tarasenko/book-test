@@ -12,7 +12,6 @@ class UserSchema extends Schema {
       table.string('password').notNullable()
       table.string('photo')
       table.date('registration_date')
-      table.timestamps()
     })
   }
 

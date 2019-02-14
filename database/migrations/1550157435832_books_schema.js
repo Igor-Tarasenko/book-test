@@ -9,7 +9,8 @@ class BooksSchema extends Schema {
       table.increments()
       table.string('name').notNullable()
       table.date('published_at').notNullable()
-      table.integer('user_id', 10)
+      table.integer('user_id', 10).unsigned().nullable()
+      table.foreign('user_id').references('id').inTable('users').onDelete('set null')
     })
   }
 

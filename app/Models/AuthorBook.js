@@ -2,10 +2,14 @@
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
+const Timestamp = use('NoTimestamp')
 
 class AuthorBook extends Model {
-  author_book () {
-
+  book () {
+    return this.hasMany('App/Model/Book')
+  }
+  author () {
+    return this.hasMany('App/Model/Author')
   }
 }
 

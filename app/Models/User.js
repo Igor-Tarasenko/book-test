@@ -5,6 +5,7 @@ const Hash = use('Hash')
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
+const Timestamp = use('NoTimestamp')
 
 class User extends Model {
   static boot () {
@@ -31,7 +32,7 @@ class User extends Model {
    *
    * @return {Object}
    */
-  books () {
+  book () {
     return this.hasMany('App/Models/Book')
   }
 }

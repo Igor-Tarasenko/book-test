@@ -10,7 +10,6 @@ class AuthorsSchema extends Schema {
       table.string('firstName').notNullable()
       table.string('lastName').notNullable()
       table.date('birthday').notNullable()
-      table.timestamps()
     })
   }
 
