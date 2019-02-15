@@ -5,22 +5,24 @@ const Hash = use('Hash')
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
-const Timestamp = use('NoTimestamp')
 
 class User extends Model {
   static boot () {
     super.boot()
-
-    /**
-     * A hook to hash the user password before saving
-     * it to the database.
-     */
-    this.addHook('beforeSave', async (userInstance) => {
-      if (userInstance.dirty.password) {
-        userInstance.password = await Hash.make(userInstance.password)
-      }
-    })
+    this.addTrait('NoTimestamp')
+  //   /**
+  //    * A hook to hash the user password before saving
+  //    * it to the database.
+  //    */
+  //    this.addHook('beforeSave', async (userInstance) => {
+  //     if (userInstance.dirty.password) {
+  //       userInstance.password = await Hash.make(userInstance.password)
+  //     }
   }
+  book () {
+    return this.hasMany('App/Models/Book')
+  }
+}
 
   /**
    * A relationship on tokens is required for auth to
@@ -32,9 +34,5 @@ class User extends Model {
    *
    * @return {Object}
    */
-  book () {
-    return this.hasMany('App/Models/Book')
-  }
-}
 
 module.exports = User
