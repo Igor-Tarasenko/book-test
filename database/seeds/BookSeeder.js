@@ -17,6 +17,7 @@ const Database = use('Database')
 class BookSeeder {
   async run () {
     await Database.table('books')
+    await Factory.model('App/Models/Book').createMany(5)
   }
 }
 

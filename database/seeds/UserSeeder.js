@@ -18,6 +18,7 @@ const Database = use('Database')
 class UserSeeder {
   async run () {
     await Database.table('users')
+    await Factory.model('App/Models/User').createMany(5)
   }
 }
 

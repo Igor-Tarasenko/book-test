@@ -20,7 +20,7 @@ Factory.blueprint('App/Models/User', async (faker) => {
     email: faker.email(),
     password: faker.password(),
     photo: faker.file(),
-    registration_date: faker.date()
+    registration_date: faker.date({american: false})
   }
 })
 
@@ -50,9 +50,5 @@ Factory.blueprint('App/Models/AuthorBook', async (faker) => {
     }
   }
 })
-const user = Factory.model('App/Models/User').create()
-const book = Factory.model('App/Models/Book').create()
-const author = Factory.model('App/Models/Author').create()
-const author_book = Factory.model('App/Models/AuthorBook').create()
 
 
