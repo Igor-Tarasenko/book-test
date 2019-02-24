@@ -12,12 +12,15 @@
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use('Factory')
-const Database = use('Database')
+const User = use('App/Models/User')
 
 class BookSeeder {
   async run () {
-    await Database.table('books')
-    await Factory.model('App/Models/Book').createMany(5)
+    const usersIds = await User.ids();
+    await Promise.all(usersIds.map((id) =>
+      id % 2 === 0 ? Factory.model('App/Models/Book').create({ user_id: id })
+        : Factory.model('App/Models/Book').create()
+    ))
   }
 }
 

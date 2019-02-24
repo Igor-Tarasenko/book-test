@@ -24,7 +24,7 @@ Factory.blueprint('App/Models/User', async (faker) => {
   }
 })
 
-Factory.blueprint('App/Models/Book', async (faker, data) => {
+Factory.blueprint('App/Models/Book', async (faker, i ,data) => {
   return {
     name: faker.name(),
     published_at: faker.date({american: false}),
@@ -40,14 +40,10 @@ Factory.blueprint('App/Models/Author', async (faker) => {
   }
 })
 
-Factory.blueprint('App/Models/AuthorBook', async (faker) => {
+Factory.blueprint('App/Models/AuthorBook', async (faker, i, data) => {
   return {
-    author_id: async () => {
-      return (await Factory.model('App/Models/Author').create()).id
-    },
-    book_id: async () => {
-      return (await Factory.model('App/Models/Book').create()).id
-    }
+    book_id: data.book_id,
+    author_id: data.author_id
   }
 })
 

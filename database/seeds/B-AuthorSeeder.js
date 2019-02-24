@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| AuthorBookSeeder
+| BAuthorSeeder
 |--------------------------------------------------------------------------
 |
 | Make use of the Factory instance to seed database with dummy data or
@@ -12,13 +12,11 @@
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use('Factory')
-const Database = use('Database')
 
-class AuthorBookSeeder {
+class BAuthorSeeder {
   async run () {
-    await Database.table('author_books')
-    await Factory.model('App/Models/AuthorBook').createMany(5)
+    await Factory.model('App/Models/Author').createMany(30)
   }
 }
 
-module.exports = AuthorBookSeeder
+module.exports = BAuthorSeeder
