@@ -14,29 +14,29 @@
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use('Factory');
 
-Factory.blueprint('App/Models/User', async (faker) => {
+Factory.blueprint('App/Models/User', async (faker, i, data) => {
   return {
-    name: faker.name(),
-    email: faker.email(),
-    password: faker.password(),
-    photo: faker.file(),
-    registration_date: faker.date({american: false})
+    name: data.name || faker.name(),
+    email: data.email || faker.email(),
+    password: data.password || faker.password(),
+    photo: data.photo || faker.file(),
+    registration_date: data.photo || faker.date({american: false})
   }
 })
 
 Factory.blueprint('App/Models/Book', async (faker, i ,data) => {
   return {
-    name: faker.name(),
-    published_at: faker.date({american: false}),
+    name: data.name || faker.name(),
+    published_at: data.published_at || faker.date({american: false}),
     user_id: data.user_id || null
   }
 })
 
-Factory.blueprint('App/Models/Author', async (faker) => {
+Factory.blueprint('App/Models/Author', async (faker, i, data) => {
   return {
-    firstName: faker.first(),
-    lastName: faker.last(),
-    birthday: faker.date({american: false})
+    firstName: data.firstName || faker.first(),
+    lastName: data.lastName || faker.last(),
+    birthday: data.birthday|| faker.date({american: false})
   }
 })
 
