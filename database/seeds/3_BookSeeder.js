@@ -18,7 +18,7 @@ class BookSeeder {
   async run () {
     const usersIds = await User.ids();
     await Promise.all(usersIds.map( user_id =>
-      user_id % 2 === 0 ? Factory.model('App/Models/Book').create({ user_id: user_id })
+      user_id % 2 === 0 ? Factory.model('App/Models/Book').create({ user_id })
         : Factory.model('App/Models/Book').create()
     ))
   }

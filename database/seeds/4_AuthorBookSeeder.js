@@ -19,10 +19,10 @@ class AuthorBookSeeder {
   async run () {
     const bookIds = await Book.ids();
     const authorIds = await Author.ids();
-    await Promise.all(authorIds.reduce((promises, book_id, index) => {
-      promises.push(Factory.model('App/Models/AuthorBook').create({ author_id: book_id, book_id }));
+    await Promise.all(bookIds.reduce((promises, book_id, index) => {
+      promises.push(Factory.model('App/Models/AuthorBook').create({ book_id, author_id: authorIds[ index ] }));
       if (book_id % 2 === 0) {
-        promises.push(Factory.model('App/Models/AuthorBook').create({ author_id: bookIds[index - 1], book_id }))
+        promises.push(Factory.model('App/Models/AuthorBook').create({ book_id, author_id: authorIds[index - 1] }))
       }
       return promises;
     }, []))

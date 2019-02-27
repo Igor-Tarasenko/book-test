@@ -20,7 +20,7 @@ Factory.blueprint('App/Models/User', async (faker, i, data) => {
     email: data.email || faker.email(),
     password: data.password || faker.password(),
     photo: data.photo || faker.file(),
-    registration_date: data.photo || faker.date({american: false})
+    registration_date: data.registration_date || faker.date({american: false})
   }
 })
 
