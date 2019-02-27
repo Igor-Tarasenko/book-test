@@ -9,8 +9,8 @@ class Author extends Model {
     this.addTrait('NoTimestamp')
   }
 
-  book () {
-    return this.belongsToMany('App/Model/Book')
+  books () {
+    return this.belongsToMany('App/Models/Book')
   }
 }
 

@@ -8,13 +8,6 @@ class AuthorBook extends Model {
     super.boot()
     this.addTrait('NoTimestamp')
   }
-
-  book () {
-    return this.hasMany('App/Model/Book')
-  }
-  author () {
-    return this.hasMany('App/Model/Author')
-  }
 }
 
 module.exports = AuthorBook

@@ -16,11 +16,11 @@ class Book extends Model {
     //       userInstance.password = await Hash.make(userInstance.password)
     //     }
   }
-  author () {
-    return this.belongsToMany('App/Model/Author')
+  authors () {
+    return this.belongsToMany('App/Models/Author')
   }
   user () {
-    return this.belongsToMany('App/Model/User')
+    return this.belongsTo('App/Models/User')
   }
 }
 
