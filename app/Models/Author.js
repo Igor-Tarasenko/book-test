@@ -8,7 +8,6 @@ class Author extends Model {
     super.boot()
     this.addTrait('NoTimestamp')
   }
-
   books () {
     return this.belongsToMany('App/Models/Book')
   }
