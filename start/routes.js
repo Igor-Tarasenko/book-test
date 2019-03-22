@@ -8,4 +8,5 @@ const Route = use('Route')
 
 Route.resource('users', 'UserController')
 Route.resource('books', 'BookController')
+Route.resource('authors', 'AuthorController')
   .apiOnly();
