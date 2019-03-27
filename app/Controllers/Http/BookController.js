@@ -17,7 +17,9 @@ class BookController {
   }
   async update ({ params, request }) {
     const book = await Book.findOrFail(params.id);
-    book.merge(request.only(this.fields));
+    const data = request.only(this.fields);
+    data.user_id = data.user_id === '' ? null : data.user_id;
+    book.merge(data);
     await book.save();
     return book;
   }

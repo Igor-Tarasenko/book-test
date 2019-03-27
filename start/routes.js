@@ -7,6 +7,8 @@ const Route = use('Route')
 // Route.delete('users/:id', 'UserController.destroy').as('users.destroy')
 
 Route.resource('users', 'UserController')
+  .apiOnly();
 Route.resource('books', 'BookController')
+  .apiOnly();
 Route.resource('authors', 'AuthorController')
   .apiOnly();
