@@ -7,8 +7,10 @@ const Route = use('Route')
 // Route.delete('users/:id', 'UserController.destroy').as('users.destroy')
 
 Route.resource('users', 'UserController')
-  .apiOnly();
+  .apiOnly()
+  .validator('UserValidator');
 Route.resource('books', 'BookController')
-  .apiOnly();
+  .apiOnly()
+  .validator('BookValidator');
 Route.resource('authors', 'AuthorController')
   .apiOnly();
